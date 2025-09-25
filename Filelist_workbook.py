@@ -62,19 +62,6 @@ def print_dictionary(dictionary):
     for item in dictionary.items():
         print(f"\t{item}")
 
-def reoccur_monthly_payments(self, amount, month_duration, col_letter, col_header):
-    if len(col_letter) != 1:
-        raise ValueError("INVALID INPUT. It must be a single character!\nExample: 'B', 'C'")
-    elif col_letter == 'A':
-        raise ValueError("column 'A' is already used. Pick a different column letter.")
-    else:
-        header_cell = f"{col_letter}1"
-        ws[header_cell] = str(col_header)
-        for reoccur in range(2, month_duration+2):
-            reoccur_cell = f"{col_letter}{reoccur}"
-            ws[reoccur_cell].number_format = '#,##0.00'
-            ws[reoccur_cell] = round(amount, 2) # sets any value to nearest hundredth place. $0.00
-
 if __name__ == '__main__':
 
     print(sys.executable)

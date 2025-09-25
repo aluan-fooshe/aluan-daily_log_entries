@@ -101,8 +101,6 @@ class DateFormatter:
 # ========================================
 
 if __name__ == '__main__':
-    import datetime
-    from dateutil.relativedelta import relativedelta
 
     # Set your reference starting date (change as needed)
     ref_dt = datetime.datetime(2020, 1, 1, 0, 0, 0)
