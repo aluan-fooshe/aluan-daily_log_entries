@@ -96,22 +96,8 @@ class DateFormatter:
                 print(f"\n")
                 break
 
-# ========================================
-# MAIN CONFIGURATION SECTION
-# ========================================
-
-if __name__ == '__main__':
-
-    # Set your reference starting date (change as needed)
-    ref_dt = datetime.datetime(2020, 1, 1, 0, 0, 0)
-    print("Reference date:", ref_dt.strftime("%A, %B %d, %Y"))
-
-    # ---- CUSTOMIZE YOUR SCHEDULE ----
-    # Weekday reference: Monday(0) Tuesday(1) Wednesday(2) Thursday(3) Friday(4) Saturday(5) Sunday(6)
-
-    # Example: Generate schedule entries for a date range
-    # Change the range and events below to match your needs
-    for i in range(22, 140):  # Adjust range as needed (days 22–140 from reference date)
+def main():
+    for i in range(0, 14):  # Adjust range as needed (days 22–140 from reference date)
 
         # Create a new schedule formatter for each day
         schedule_formatter = DateFormatter(0, 0, i, ref_dt)
@@ -123,11 +109,32 @@ if __name__ == '__main__':
         schedule_formatter.recurring_schedule_entries("12:00PM - 2:20PM\nClass Session", [1, 3])  # Tuesdays & Thursdays
         schedule_formatter.recurring_schedule_entries("9:00AM - 10:20AM\nWork Shift", [0, 2])     # Mondays & Wednesdays
 
-        # Add more recurring events as needed:
-        # schedule_formatter.recurring_schedule_entries("2:00PM - 4:00PM\nLab Session", [4])      # Fridays only
-        # schedule_formatter.recurring_schedule_entries("10:00AM - 12:00PM\nTeam Meeting", [1])   # Tuesdays only
-
         print("--------------------\n")
+
+
+# ========================================
+# MAIN CONFIGURATION SECTION
+# ========================================
+
+if __name__ == '__main__':
+
+    try:
+        document = Document(foo='bar', baz=12)
+        print(document['baz'])
+
+    except:
+        print("Old Document class is gone — this failed as expected.\n")
+
+    # Set your reference starting date (change as needed)
+    ref_dt = datetime.datetime(2020, 1, 1, 0, 0, 0)
+    print("Reference date:", ref_dt.strftime("%A, %B %d, %Y"))
+
+    # ---- CUSTOMIZE YOUR SCHEDULE ----
+    # Weekday reference: Monday(0) Tuesday(1) Wednesday(2) Thursday(3) Friday(4) Saturday(5) Sunday(6)
+
+    # Example: Generate schedule entries for a date range
+    # Change the range and events below to match your needs
+    main()
 
 # ========================================
 # USAGE EXAMPLES:

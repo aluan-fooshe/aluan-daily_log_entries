@@ -34,7 +34,7 @@ class Excel_Filelist:
             for item in list:
                 item = item.strip('\n')
                 item0.append(item)
-            print(item0)
+            #print(item0)
 
             index = 0
             for item in item0:
@@ -58,9 +58,19 @@ class Excel_Filelist:
         return ws.column_dimensions[col_letter].width
 
 
-def print_dictionary(dictionary):
-    for item in dictionary.items():
-        print(f"\t{item}")
+    def print_dictionary(self, dictionary):
+        for item in dictionary.items():
+            print(f"\t{item}")
+
+def add_to_spreadsheet(dictionary, letter):
+    return_str = ""
+    i = 3
+    for key, value in dictionary.items():
+        name_cell = f"{letter}{i}"
+        ws[name_cell] = f"{value}"
+        return_str = return_str + f"{name_cell}\t{key}:{value}\n"
+        i += 1
+    return return_str
 
 if __name__ == '__main__':
 
@@ -115,12 +125,12 @@ if __name__ == '__main__':
     ws.add_image(img)
 
 
-
     i = 3
     dictionary1 = excel_fl.import_dictionary(dictionary_file1)
     dictionary2 = excel_fl.import_dictionary(dictionary_file2)
     key1, value1 = next(iter(dictionary1.items()))
     key2, value2 = next(iter(dictionary2.items()))
+
     name_cell = f"B{i}"
     lastwritetime_cell = f"C{i}"
     ws[name_cell] = f"{value1}"
@@ -128,26 +138,14 @@ if __name__ == '__main__':
     print(f"{name_cell}\t{key1}:{value1}")
     print(f"{lastwritetime_cell}\t{key2}:{value2}")
 
-    # dictionary1 = Excel_Filelist.import_dictionary(dictionary_file1)
-    # print_dictionary(dictionary1)
-    # print("\n")
-    # dictionary2 = Excel_Filelist.import_dictionary(dictionary_file2)
-    # print_dictionary(dictionary2)
-    # print("--------------------\n")
-    # 
-    # i1 = 3
-    # for key, value in dictionary1.items():
-    #     name_cell = f"B{i1}"
-    #     ws[name_cell] = f"{value}"
-    #     print(f"{name_cell}\t{key}:{value}")
-    #     i1 += 1
-    # 
-    # i2 = 3
-    # for key, value in dictionary2.items():
-    #     lastwritetime_cell = f"C{i2}"
-    #     ws[lastwritetime_cell] = f"{value}"
-    #     print(f"{lastwritetime_cell}\t{key}:{value}")
-    #     i2 += 1
+    excel_fl.print_dictionary(dictionary1)
+    print("\n")
+    excel_fl.print_dictionary(dictionary2)
+
+    print("--------------------\n")
+
+    add_to_spreadsheet(dictionary1, "B")
+    add_to_spreadsheet(dictionary2, "C")
 
     filelist_wb.save('filelist.xlsx')
     print(f"\n{ws.title} spreadsheet is saved!")
