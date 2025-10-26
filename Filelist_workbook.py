@@ -29,12 +29,11 @@ class Excel_Filelist:
         item0 = []
 
         try:
-            f = open(filename, 'r')
+            f = open(filename, 'r', encoding='utf-16')
             list = f.readlines()
             for item in list:
                 item = item.strip('\n')
                 item0.append(item)
-            #print(item0)
 
             index = 0
             for item in item0:
@@ -62,6 +61,44 @@ class Excel_Filelist:
         for item in dictionary.items():
             print(f"\t{item}")
 
+    # image = 2025-02-07 144957 switch_before_go.png
+    # image_dir = C:\Users\Audrey\OneDrive\Pictures\screenshot-collages
+    # saved_image_dir = C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100
+    def filelist_thumbnail(self, iter=0, image=None,
+                           image_dir=r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages",
+                           saved_image_dir=r"C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100"):
+
+        # Add image to my filelist spreadsheet
+        image_path = rf"{image_dir}\{image}"
+        cell_address = f"A{iter+3}"
+
+        # Load with Pillow first to get pixel dimensions
+        pil_img = PILImage.open(image_path)
+        width_px, height_px = pil_img.size
+        print(f"Original Pixel dimensions: {width_px} x {height_px}")
+
+        # Convert Excel column width → pixels (approximation)
+        scale = 100
+        # Scale height proportionally, height/width
+        proportional_factor = height_px / width_px
+        target_height_px = int(proportional_factor * scale)
+        print(f"New Pixel dimensions: {scale} x {target_height_px}")
+
+        # (width, height) makes image proportional to uniform width for xlsx sheet.
+        pil_img = pil_img.resize((scale, target_height_px))
+        saved_image_path = rf"{saved_image_dir}\{image}"
+        pil_img.save(saved_image_path)
+
+        # Load into openpyxl and anchor
+        img = Image(saved_image_path)
+        # # Shows the image in image viewer
+        # pil_img.show()
+
+        img.anchor = cell_address
+        ws.row_dimensions[3].height = target_height_px
+        ws.add_image(img)
+        return saved_image_path
+
 def add_to_spreadsheet(dictionary, letter):
     return_str = ""
     i = 3
@@ -87,43 +124,12 @@ if __name__ == '__main__':
     ws['B2'] = "Name"
     ws['C2'] = "LastWriteTime"
 
-    excel_fl = Excel_Filelist('filelist.xlsx', 'last_writetime.txt', 'last_writetime.txt')
+    excel_fl = Excel_Filelist('filelist.xlsx', 'name_of_file.txt', 'last_writetime.txt')
 
     width = 10
     excel_fl.set_column_width_pixels('A', width)
     excel_fl.set_column_width_pixels('B', width*2)
     excel_fl.set_column_width_pixels('C', width*1.5)
-
-    # Add image to my filelist spreadsheet
-    image_path = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages\2025-02-07 144957 switch_before_go.png"
-    cell_address = "A3"
-
-    # Load with Pillow first to get pixel dimensions
-    pil_img = PILImage.open(image_path)
-    width_px, height_px = pil_img.size
-    print(f"Original Pixel dimensions: {width_px} x {height_px}")
-
-    # Convert Excel column width → pixels (approximation)
-    scale = 100
-    # Scale height proportionally, height/width
-    proportional_factor = height_px / width_px
-    target_height_px = int(proportional_factor * scale)
-    print(f"New Pixel dimensions: {scale} x {target_height_px}")
-
-    # (width, height) makes image proportional to uniform width for xlsx sheet.
-    pil_img = pil_img.resize((scale, target_height_px))
-    saved_image_path = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100\2025-02-07 144957 switch_before_go.png"
-    pil_img.save(saved_image_path)
-
-    # Load into openpyxl and anchor
-    img = Image(saved_image_path)
-    # Shows the image in image viewer
-    pil_img.show()
-
-    img.anchor = cell_address
-    ws.row_dimensions[3].height = target_height_px
-    ws.add_image(img)
-
 
     i = 3
     dictionary1 = excel_fl.import_dictionary(dictionary_file1)
@@ -133,6 +139,10 @@ if __name__ == '__main__':
 
     name_cell = f"B{i}"
     lastwritetime_cell = f"C{i}"
+
+    print(f"{name_cell}\t{key1}:{value1}")
+    print(f"{lastwritetime_cell}\t{key2}:{value2}")
+
     ws[name_cell] = f"{value1}"
     ws[lastwritetime_cell] = f"{value2}"
     print(f"{name_cell}\t{key1}:{value1}")
@@ -144,6 +154,11 @@ if __name__ == '__main__':
 
     print("--------------------\n")
 
+    image = r"2025-02-07 144957 switch_before_go.png"
+    image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages"
+    saved_image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100"
+
+    excel_fl.filelist_thumbnail(image=value1, image_dir=image_dir, saved_image_dir=saved_image_dir)
     add_to_spreadsheet(dictionary1, "B")
     add_to_spreadsheet(dictionary2, "C")
 
