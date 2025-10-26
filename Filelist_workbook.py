@@ -97,6 +97,7 @@ class Excel_Filelist:
         img.anchor = cell_address
         ws.row_dimensions[3].height = target_height_px
         ws.add_image(img)
+        filelist_wb.save(self.ws)
         return saved_image_path
 
 def add_to_spreadsheet(dictionary, letter):
@@ -140,25 +141,28 @@ if __name__ == '__main__':
     name_cell = f"B{i}"
     lastwritetime_cell = f"C{i}"
 
-    print(f"{name_cell}\t{key1}:{value1}")
-    print(f"{lastwritetime_cell}\t{key2}:{value2}")
+    # print(f"{name_cell}\t{key1}:{value1}")
+    # print(f"{lastwritetime_cell}\t{key2}:{value2}")
 
     ws[name_cell] = f"{value1}"
     ws[lastwritetime_cell] = f"{value2}"
-    print(f"{name_cell}\t{key1}:{value1}")
-    print(f"{lastwritetime_cell}\t{key2}:{value2}")
+    # print(f"{name_cell}\t{key1}:{value1}")
+    # print(f"{lastwritetime_cell}\t{key2}:{value2}")
 
-    excel_fl.print_dictionary(dictionary1)
-    print("\n")
-    excel_fl.print_dictionary(dictionary2)
+    # excel_fl.print_dictionary(dictionary1)
+    # print("\n")
+    # excel_fl.print_dictionary(dictionary2)
 
     print("--------------------\n")
 
-    image = r"2025-02-07 144957 switch_before_go.png"
+    image_ex = r"2025-02-07 144957 switch_before_go.png"
     image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages"
     saved_image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100"
 
-    excel_fl.filelist_thumbnail(image=value1, image_dir=image_dir, saved_image_dir=saved_image_dir)
+    for key, image1 in dictionary1.items():
+        excel_fl.filelist_thumbnail(iter=key, image=image1, image_dir=image_dir, saved_image_dir=saved_image_dir)
+        #print(key, image1)
+
     add_to_spreadsheet(dictionary1, "B")
     add_to_spreadsheet(dictionary2, "C")
 
