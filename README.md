@@ -52,18 +52,27 @@ The issue you’ve described seems to be related to how Outlook on Windows 11 in
 ## C.A.R.T. - Carry Assist Robotic Transport
 ### ECE 129A CAPSTONE Project Proposal (Fall 2025)
 
+  Project 10  
+  C.A.R.T. - Carry Assist Robotic Transport (Robotic Cart)  
+  Project Brief: [Carry_Assist_Robotic_Transport__ProjectBrief.pdf](Carry_Assist_Robotic_Transport__ProjectBrief.pdf)  
+  Presentation: [Carry_Assist_Robotic_Transport__Slideshow.pdf](Carry_Assist_Robotic_Transport__Slideshow.pdf)
+
+<img src="" width="385px" align="center">
+
 If you are.... 
-- a classmate of mine in S.C. Petersen's class
-- part of a STEM-affiliated club
+- a classmate of mine in **S.C. Petersen**'s class
+- part of a **STEM-affiliated club**
   - Slugbotics
   - Rocket Team
   - etc.
-- a professor from the University of California, Santa Cruz 
-- interested in becoming a stakeholder for this project pitch idea
+- a professor from the **University of California, Santa Cruz** 
+- interested in *becoming a stakeholder* for this project pitch idea
 
 and are interested in reaching out to me and add yourselves to my stakeholders list, email me for further interest;
 
 aluan@ucsc.edu
+
+<img src="" width="385px" align="center">
 
 ----
 ### References
