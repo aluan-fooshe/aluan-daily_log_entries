@@ -49,7 +49,24 @@ I understand how frustrating it can be when the same .txt file behaves different
 The issue you’ve described seems to be related to how Outlook on Windows 11 interprets the encoding of .txt file attachments, defaulting to UTF-16 LE instead of UTF-8. This can cause the file to appear unreadable if the system or application isn’t set to interpret UTF-16 correctly. [2]
 
 ----
-## References
+## C.A.R.T. - Carry Assist Robotic Transport
+### ECE 129A CAPSTONE Project Proposal (Fall 2025)
+
+If you are.... 
+- a classmate of mine in S.C. Petersen's class
+- part of a STEM-affiliated club
+  - Slugbotics
+  - Rocket Team
+  - etc.
+- a professor from the University of California, Santa Cruz 
+- interested in becoming a stakeholder for this project pitch idea
+
+and are interested in reaching out to me, email me for further interest;
+
+aluan@ucsc.edu
+
+----
+### References
 
 [1] Python Software Foundation, "Built-in Functions", Python 3.14.0 Documentation. 
 [Online]. Available: https://docs.python.org/3/library/functions.html#open. 
