@@ -61,7 +61,7 @@ If you are....
 - a professor from the University of California, Santa Cruz 
 - interested in becoming a stakeholder for this project pitch idea
 
-and are interested in reaching out to me, email me for further interest;
+and are interested in reaching out to me and add yourselves to my stakeholders list, email me for further interest;
 
 aluan@ucsc.edu
 
