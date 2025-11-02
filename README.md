@@ -12,3 +12,13 @@ The contents that were once listed here were meant for the README.md for the Git
 
 - [aluan-report_temp_generator README.md](https://github.com/aluan-fooshe/aluan-report_temp_generator/blob/main/README.md)
 - [aluan-report_temp_generator repository](https://github.com/aluan-fooshe/aluan-report_temp_generator/)
+
+#### 2. Diary-related .py files added, deleted permanently from original directory.
+
+    ├── daily_entries
+    │   ├── dark-and-stormy.docx
+    │   ├── Create_Diary_docx.py
+    │   ├── Diary_main.py
+    │   └── Sort_My_Screenshots.py
+
+These files have now been moved to this public repository.
