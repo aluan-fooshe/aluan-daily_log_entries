@@ -43,36 +43,36 @@ class DateFormatter:
 
     def USA_holidays(self):
         if (int(self.dt.month) == 1) and (int(self.dt.day) == 1):
-            print(f"New Year's Day")
+            return "New Year's Day"
         elif (int(self.dt.month) == 7) and (int(self.dt.day) == 4):
-            print(f"U.S.A. Independence Day")
+            return "U.S.A. Independence Day"
         elif (int(self.dt.month) == 10) and (int(self.dt.day) == 31):
-            print(f"Halloween")
+            return "Halloween"
         elif (int(self.dt.month) == 12) and (int(self.dt.day) == 24):
-            print(f"Christmas Eve")
+            return "Christmas Eve"
         elif (int(self.dt.month) == 12) and (int(self.dt.day) == 25):
-            print(f"Christmas Day")
+            return "Christmas Day"
         elif (int(self.dt.month) == 12) and (int(self.dt.day) == 31):
-            print(f"New Year's Eve")
+            return "New Year's Eve"
         else:
-            pass
+            return None
 
     def USA_weekday_holidays(self):
         weeknum = int(DateFormatter.ISO_week_number(self))
         if (self.dt.weekday() == 1) and (weeknum == 4):
-            print(f"Martin Luther King Jr. Day")
+            return "Martin Luther King Jr. Day"
         elif (self.dt.weekday() == 0) and (weeknum == 8):
-            print("Washington’s Birthday")  # 3rd Monday in February
+            return "Washington's Birthday"  # 3rd Monday in February
         elif (self.dt.weekday() == 0) and (weeknum == 22):
-            print("Memorial Day")  # Last Monday in May
+            return "Memorial Day"  # Last Monday in May
         elif (self.dt.weekday() == 0) and (weeknum == 36):
-            print("Labor Day")  # 1st Monday in September
+            return "Labor Day"  # 1st Monday in September
         elif (self.dt.weekday() == 0) and (weeknum == 42):
-            print("Columbus Day / Indigenous Peoples’ Day")  # 2nd Monday in October
+            return "Columbus Day / Indigenous Peoples' Day"  # 2nd Monday in October
         elif (self.dt.weekday() == 3) and (weeknum == 48):
-            print(f"Thanksgiving Day")
+            return "Thanksgiving Day"
         else:
-            pass
+            return None
 
     # weekday input examples:
     #   Monday(0)   Tuesday(1)      Wednesday(2)    Thursday(3)     Friday(4)   Saturday(5)     Sunday(6)
@@ -92,9 +92,8 @@ class DateFormatter:
         """
         for weekday in class1_weekdays:
             if self.dt.weekday() == int(weekday):
-                print(class1)
-                print(f"\n")
-                break
+                return f"{class1}\n"
+            return None
 
 def main():
     for i in range(0, 14):  # Adjust range as needed (days 22–140 from reference date)

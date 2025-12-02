@@ -1,8 +1,9 @@
-import datetime
-from Diary_Entry_format import DateFormatter
-from Create_Diary_docx import Create_diary
 import calendar
+from Create_Diary_docx import Create_diary
+import datetime
+from DateFormatter import DateFormatter
 from datetime import date
+import sys
 
 def month_range(year, month):
     month_name = calendar.month_name[month]
@@ -17,10 +18,19 @@ def print_if_none(item):
 
 if __name__ == '__main__':
 
-    Y_dt = 0
-    M_dt = 10
+    """How to run code
+        open terminal tab.
+        (PycharmProjects) PS [directory path]> python test0.py arg1 arg2 
+    """
+    # Print all arguments
+    print("Arguments:", sys.argv)
 
     ref_dt = datetime.datetime(2025, 1, 1)
+
+    Y_dt = 0
+    M_dt = 11
+    print("First argument:", Y_dt + 2025)
+    print("Second argument:", M_dt)
     date_range = month_range(ref_dt.year+Y_dt, ref_dt.month+M_dt)
 
     print("Date time: ", ref_dt)
@@ -38,6 +48,7 @@ if __name__ == '__main__':
 
     aluan = Create_diary(
         name=None,
+        date=datetime.datetime(ref_dt.year+Y_dt, ref_dt.month+M_dt, 1),
         font_name="Courier New",
         margin_inch=None
     )
@@ -59,8 +70,9 @@ if __name__ == '__main__':
 
         j = 0
         for key, value in fall_2025.items():
-            class1 = today.blank_diary_entries(f"{value}\n{key}\n", weekdays[j])
-            print_if_none(class1)
+            if D_dt < 7:
+                class1 = today.recurring_schedule_entries(class1=f"{value}\n{key}\n", class1_weekdays=weekdays[j])
+                print_if_none(class1)
             j += 1
         print(aluan.add_title("\n--------------------\n"))
 

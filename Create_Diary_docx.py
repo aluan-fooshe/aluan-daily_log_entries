@@ -23,16 +23,19 @@ def docx_example():
     print(first_paragraph_text)
 
 class Create_diary:
-    def __init__(self, name, font_name, margin_inch):
+    def __init__(self, name, date, font_name, margin_inch):
         dt = datetime.datetime.today()
 
         self.name = name
-        self.date = datetime.datetime(dt.year, dt.month, dt.day)
+        self.date = date
         self.font_name = font_name
         self.margin_inch = margin_inch
 
         if name == None:
             self.name = "Audrey Luan"
+
+        if date == None:
+            self.date = datetime.datetime(dt.year, dt.month, dt.day)
 
         if margin_inch == None:
             self.margin_inch = 1
