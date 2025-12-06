@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03db9330-cdff-4ab5-b50d-33ddda4f9bc1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Create_Diary_docx.py" beforeDir="false" afterPath="$PROJECT_DIR$/Create_Diary_docx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2025-12 diary entries.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DateFormatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/DateFormatter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Diary_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary_main.py" afterDir="false" />
     </list>
@@ -215,22 +216,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Diary_main.py</url>
-          <line>67</line>
+          <line>70</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Diary_main.py</url>
-          <line>68</line>
+          <line>71</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Diary_main.py</url>
-          <line>59</line>
+          <line>62</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Diary_main.py</url>
-          <line>74</line>
+          <line>77</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

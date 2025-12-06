@@ -135,25 +135,27 @@ if __name__ == '__main__':
     # Change the range and events below to match your needs
     main()
 
-# ========================================
-# USAGE EXAMPLES:
-# ========================================
-#
-# 1. Generate a single formatted date:
-#    DateFormatter.date_name(0, 1, 15)  # 1 month, 15 days from reference
-#
-# 2. Show all dates in a month:
-#    DateFormatter.date_month("name", 0, 2)  # Show month 2 from reference year
-#
-# 3. Find holidays in a year:
-#    DateFormatter.USA_holidays(1)  # Show holidays 1 year from reference
-#
-# 4. Add custom recurring events:
-#    DateFormatter.recurring_schedule_entries(0, 0, i, "Custom Event", [0, 2, 4])  # Monday, Wednesday, Friday
-#
-# 5. Common weekday patterns:
-#    [0, 1, 2, 3, 4] = Weekdays (Monday-Friday)
-#    [5, 6] = Weekends (Saturday-Sunday)
-#    [1, 3] = Tuesday, Thursday
-#    [0, 2, 4] = Monday, Wednesday, Friday
-# ========================================
+"""
+========================================
+USAGE EXAMPLES:
+========================================
+
+1. Generate a single formatted date:
+   DateFormatter.date_name(0, 1, 15)  # 1 month, 15 days from reference
+
+2. Show all dates in a month:
+   DateFormatter.date_month("name", 0, 2)  # Show month 2 from reference year
+
+3. Find holidays in a year:
+   DateFormatter.USA_holidays(1)  # Show holidays 1 year from reference
+
+4. Add custom recurring events:
+   DateFormatter.recurring_schedule_entries(0, 0, i, "Custom Event", [0, 2, 4])  # Monday, Wednesday, Friday
+
+5. Common weekday patterns:
+   [0, 1, 2, 3, 4] = Weekdays (Monday-Friday)
+   [5, 6] = Weekends (Saturday-Sunday)
+   [1, 3] = Tuesday, Thursday
+   [0, 2, 4] = Monday, Wednesday, Friday
+========================================
+"""

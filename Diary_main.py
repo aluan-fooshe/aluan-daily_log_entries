@@ -27,8 +27,11 @@ if __name__ == '__main__':
 
     ref_dt = datetime.datetime(2025, 1, 1)
 
-    Y_dt = 0
-    M_dt = 11
+    if len(sys.argv) < 3:
+        raise ValueError("Error: Not enough arguments provided. Usage: python script.py <arg1> <arg2>")
+
+    Y_dt = int(sys.argv[1])
+    M_dt = int(sys.argv[2])
     print("First argument:", Y_dt + 2025)
     print("Second argument:", M_dt)
     date_range = month_range(ref_dt.year+Y_dt, ref_dt.month+M_dt)
