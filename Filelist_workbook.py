@@ -118,6 +118,13 @@ if __name__ == '__main__':
     dt = datetime.datetime.today()
     date = dt.strftime("%Y %B %d @%I:%M%p")
 
+    if len(sys.argv) < 2:
+        print("Error: Too few arguments")
+        sys.exit(1)
+    elif len(sys.argv) > 2:
+        print("Error: Too many arguments")
+        sys.exit(1)
+
     filelist_wb = Workbook()
     ws = filelist_wb.active
     ws.title = "List of Files"
@@ -154,7 +161,8 @@ if __name__ == '__main__':
     print("--------------------\n")
 
     image_ex = r"2025-02-07 144957 switch_before_go.png"
-    image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages"
+    image_dir = sys.argv[1]
+        # r"C:\Users\Audrey\OneDrive\Pictures\screenshot-collages"
     saved_image_dir = r"C:\Users\Audrey\OneDrive\Pictures\screenshot-resized100"
 
     # i is the counter for number of dictionary items. The (image1, timestamp1) unpacks the dictionary items.
